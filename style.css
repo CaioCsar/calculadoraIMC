@@ -1,0 +1,47 @@
+body{
+    background-color: antiquewhite;
+}
+
+.tituloDados{
+    margin-right: 5px;
+}
+
+table, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+input{
+    border: 0;
+    width: 98%;
+}
+
+#masc, #fem{
+    border: 0;
+    width: fit-content;
+}
+
+.tabelaimc{
+    width: 500px;
+}
+
+/* btn */
+
+.btn{
+    width: fit-content;
+    border: 1px solid;
+    box-shadow: 1px 2px black;
+}
+
+.btn:active{
+    transform: translateY(1px);
+    box-shadow: 0px 0px;
+}
+
+/* resultado */
+
+.mostrarResult{
+    background-color: aliceblue;
+    width: 200px;
+    height: 200px;
+}

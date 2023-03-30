@@ -1,6 +1,30 @@
+let nome = document.getElementById("txtnome");
+let vHora = document.getElementById("valorHora");
+let hTrabalhadas = document.getElementById("horasT");
+let sMasc = document.getElementById("masc");
+let sFem = document.getElementById("fem");
+let confirmar = document.getElementById("confirmar");
+let limpar = document.getElementById("limpar");
+let mostrarR = document.getElementById("mostrarResult");
+
+function limpartxt() {
+nome.value = "";
+ vHora.value = "";
+ hTrabalhadas.value = "";
+ sMasc.checked = false;
+ sFem.checked = false;
+}
+
+limpar.addEventListener("click", function(){
+    limpartxt();
+});
 
 
 
+confirmar.addEventListener("click",function(){
+    mostrarR.innerHTML = nome.value;
+    limpartxt()
+})
 
 
 /* IMC base */
