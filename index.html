@@ -10,34 +10,35 @@
 </head>
 
 <body>
+    <form action="" method="post">
     <table class="tabelaimc">
         <tr>
             <th>Nome</th>
             <th><input type="text" name="nome" id="txtnome"></th>
         </tr>
         <tr>
-            <th>Valor Hora</th>
-            <th><input type="number" name="vHora" id="valorHora"></th>
+            <th>Altura</th>
+            <th><input type="number" name="alt" id="alt"></th>
         </tr>
         <tr>
-            <th>Quantidade Horas Trabalhadas</th>
-            <th><input type="number" name="horastrab" id="horasT"></th>
+            <th>Peso</th>
+            <th><input type="number" name="peso" id="peso"></th>
         </tr>
         <tr>
             <th>Sexo</th>
             <th>
-                <input type="radio" name="sexo" id="masc">Masculino
-                <input type="radio" name="sexo" id="fem"> Feminino
+                <input type="radio" name="sexo" id="masc" value="m">Masculino
+                <input type="radio" name="sexo" id="fem" value="f"> Feminino
             </th>
             <tr>
-                <th><input type="button" value="Confirmar" class="btn" id="confirmar"></th>
+                <th><input type="submit" value="Confirmar" class="btn" id="confirmar"></th>
                 <th><input type="button" value="Limpar" class="btn" id="limpar"></th>
             </tr>
         </tr>
     </table>
-
+</form>
     <section>
-        <p class="mostrarResult"></p>
+        <p id="mostrarResult"></p>
     </section>
 </body>
 <script src="./main.js"></script>

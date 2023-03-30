@@ -40,7 +40,7 @@ input{
 
 /* resultado */
 
-.mostrarResult{
+#mostrarResult{
     background-color: aliceblue;
     width: 200px;
     height: 200px;
