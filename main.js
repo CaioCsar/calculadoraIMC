@@ -70,10 +70,12 @@ window.onload = function form() {
                 result = "obeso"
             }
         }
-        if(typeof imc !== Number){
+        if(typeof imc == ""){
             return "Sem Diagnóstico"
+        }else{
+
+            return result;
         }
-        return result;
     }
 
 
