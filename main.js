@@ -1,77 +1,92 @@
-function form(){
+window.onload = function form() {
+    let nome = document.getElementById("nome")
+    let valt = document.getElementById("alt");
+    let peso = document.getElementById("peso");
+    let sMasc = document.getElementById("masc");
+    let sFem = document.getElementById("fem");
+    let confirmar = document.getElementById("confirmar");
 
-let nome = document.querySelector("input[name=nome]"),nome = nome.value;
-let valt = document.querySelector("alt.value");
-let peso = document.querySelector("peso.value");
-let sMasc = document.querySelector("sexo.value");
-let sFem = document.getElementById("sexo.value");
-let confirmar = document.getElementById("confirmar");
-let limpar = document.getElementById("limpar");
-let mostrarR = document.getElementById("mostrarResult");
-
-function limpartxt() {
-    nome = "";
-    vHora = "";
-    hTrabalhadas = "";
-    sMasc.checked = false;
-    sFem.checked = false;
-}
-
-limpar.addEventListener("click", function () {
-    limpartxt();
-});
+    let sexo = "";
+    let result = "";
+    var imc = 0;
 
 
-confirmar.addEventListener("click", function () {
-    mostrarR.innerHTML = nome;
-    console.log(nome)
-   // limpartxt()
-})
+    let mostrarR = document.getElementById("mostrarResult");
 
+    document.getElementById("limpar").addEventListener("click", function () {
+        nome.value = "";
+        valt.value = "";
+        peso.value = "";
+        sMasc.checked = false;
+        sFem.checked = false;
+        mostrarR.innerHTML = "";
+    }
+    )
 
-/* IMC base */
+    /* IMC base */
 
-let sexo = "";
-let imc = 0;
-let result = "";
+    function imcDiag() {
+        imc = (peso.value) / ((valt.value) ** 2)
 
-function imcDiag() {
-    if (sexo == homem) {
-        if (imc < 20.7) {
-            result = "abaixo do peso";
+        if(sMasc.checked){
+            sexo = "homem" 
         }
-        else if (imc == 20.7 || imc < 26.4) {
-            result = "no peso normal";
+        else if(sFem.checked){
+            sexo = "mulher"
         }
-        else if (imc == 26.4 || imc < 27.8) {
-            result = "marginalmente acima do peso";
+
+        if (sexo == "homem") {
+            if (imc < 20.7) {
+                result = "abaixo do peso";
+            }
+            else if (imc == 20.7 || imc < 26.4) {
+                result = "no peso normal";
+            }
+            else if (imc == 26.4 || imc < 27.8) {
+                result = "marginalmente acima do peso";
+            }
+            else if (imc == 27.8 || imc < 31.1) {
+                result = "acima do peso ideal";
+            }
+            else if (imc > 31.1) {
+                result = "obeso"
+            }
         }
-        else if (imc == 27.8 || imc < 31.1) {
-            result = "acima do peso ideal";
+
+        if (sexo == "mulher") {
+            if (imc < 19.1) {
+                result = "abaixo do peso";
+            }
+            else if (imc == 19.1 || imc < 25.8) {
+                result = "no peso normal";
+            }
+            else if (imc == 25.8 || imc < 27.3) {
+                result = "marginalmente acima do peso";
+            }
+            else if (imc == 27.3 || imc < 32.3) {
+                result = "acima do peso ideal";
+            }
+            else if (imc > 32.3) {
+                result = "obeso"
+            }
         }
-        else if (imc > 31.1) {
-            result = "obeso"
+        if(typeof imc !== Number){
+            return "Sem Diagnóstico"
         }
+        return result;
     }
 
-    if (sexo == mulher) {
-        if (imc < 19.1) {
-            result = "abaixo do peso";
-        }
-        else if (imc == 19.1 || imc < 25.8) {
-            result = "no peso normal";
-        }
-        else if (imc == 25.8 || imc < 27.3) {
-            result = "marginalmente acima do peso";
-        }
-        else if (imc == 27.3 || imc < 32.3) {
-            result = "acima do peso ideal";
-        }
-        else if (imc > 32.3) {
-            result = "obeso"
-        }
-    }
-}
-}
 
-/* -/-/-/-/-/--/--/---/-/--/- */
+    /* -/-/-/-/-/--/--/---/-/--/- */
+
+    /* botao confirmar */
+
+    confirmar.addEventListener("click", function () {
+        var imc = (peso.value) / ((valt.value) ** 2)
+        mostrarR.innerHTML = "Nome: " + nome.value +
+            "<br>" + "IMC: " + (imc).toFixed(2) +
+            "<br>" + "Diagnóstico: " + imcDiag()
+
+    })
+
+}
